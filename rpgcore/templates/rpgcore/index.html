@@ -1,0 +1,41 @@
+{% extends 'rpgcore/base.html' %}
+
+{% block header %}
+{% block title %}
+    The Tome of Endless Tales
+{% endblock %}
+{% endblock %}
+{% block content %}
+<ul>
+    <li>
+        <h2><a class="button p-2" href="{% url 'items-list' %}">Items</a></h2>
+        <ul>
+            <li>
+                <h3>
+                    <a class="button p-2" href="{% url 'item-effect-types-list' %}">Item Effect Types</a>
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    <a class="button p-2" href="{% url 'item-instances-list' %}">Item Instances</a>
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    <a class="button p-2" href="{% url 'item-properties-list' %}">Item Properties</a>
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    <a class="button p-2" href="{% url 'item-special-properties-list' %}">Item Special Properties</a>
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    <a class="button p-2" href="{% url 'item-types-list' %}">Item Types</a>
+                </h3>
+            </li>
+        </ul>
+    </li>
+</ul>
+{% endblock %}

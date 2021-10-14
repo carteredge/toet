@@ -1,0 +1,22 @@
+{% extends 'rpgcore/base.html' %}
+
+{% block header %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% endblock %}
+
+{% block nav %}
+{% for breadcrumb in breadcrumbs %}
+<li>
+    <a class="button" href="{% url breadcrumb.url %}">{{ breadcrumb.text }}</a>
+</li>
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input class="button" type="submit" value="Save">
+</form>
+{% endblock %}

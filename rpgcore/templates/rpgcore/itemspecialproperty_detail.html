@@ -1,0 +1,25 @@
+{% extends 'rpgcore/base.html' %}
+
+{% block header %}
+{% block title %}
+{{ object.name }}
+{% endblock %}
+{% endblock %}
+
+{% block nav %}
+<li>
+    <a class="button" href="{% url 'items-list' %}">Items</a>
+</li>
+<li>
+    <a class="button" href="{% url 'item-special-properties-list' %}">Item Special Properties</a>
+</li>
+{% endblock %}
+{% block content %}
+{% if object.requirements.exists %}
+<p>
+    <em>Requirements:</em>
+    <span>{{ object.requirements.all|join:", " }}</span>
+</p>
+{% endif %}
+<p>{{ object.description }}</p>
+{% endblock %}

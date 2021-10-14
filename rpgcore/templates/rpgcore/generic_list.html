@@ -1,0 +1,34 @@
+{% extends 'rpgcore/base.html' %}
+
+{% block header %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% endblock %}
+
+{% block nav %}
+    {% for breadcrumb in breadcrumbs %}
+    <li>
+        <a  class="button" href="{% url breadcrumb.url %}">{{ breadcrumb.text }}</a>
+    </li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+<ul class="menu row">
+    <li>
+        <a class="button" href="{% url create_url %}">New {{ title }}</a>
+    </li>
+</ul>
+<ul>
+    {% for object in object_list %}
+        <li class="row p-2">
+            <strong>{{ object.name }}</strong>
+            <a class="button-small hide-until-hover" href="{% url update_url pk=object.id %}">Edit</a>
+            <a class="button-small hide-until-hover" href="{% url delete_url pk=object.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <li class="row p-2">None found.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

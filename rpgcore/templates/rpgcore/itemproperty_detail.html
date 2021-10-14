@@ -1,0 +1,29 @@
+{% extends 'rpgcore/base.html' %}
+
+{% block header %}
+{% block title %}
+{{ object.name }}
+{% endblock %}
+{% endblock %}
+
+{% block nav %}
+<li>
+    <a class="button" href="{% url 'items-list' %}">Items</a>
+</li>
+<li>
+    <a class="button" href="{% url 'item-properties-list' %}">Item Properties</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<p>{{ object.description }}</p>
+
+<ul class="menu row">
+    <li>
+        <a class="button" href="{% url 'item-properties-update' pk=object.id %}">Edit {{ object.name }}</a>
+    </li>
+    <li>
+        <a class="button text-danger" href="{% url 'item-properties-delete' pk=object.id %}">Delete {{ object.name }}</a>
+    </li>
+</ul>
+{% endblock %}
