@@ -99,8 +99,16 @@ class BaseViews:
             model = self.model
             template_name = 'rpgcore/generic_form.html'
 
+            # # How to dynamically overload an inherited method in a class factory
+            # # (which it turned out I didn't need):
+            # def get_form(child, *args, **kwargs):
+            #     get_form = getattr(self, 'get_form', None)
+            #     if callable(get_form):
+            #         return get_form(child, *args, **kwargs)
+            #     else:
+            #         return super(CreateView, child).get_form(*args, **kwargs)
+
             def get_initial(self):
-                print(self.request.GET)
                 return self.request.GET
             
             def get_success_url(child):
